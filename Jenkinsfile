@@ -19,36 +19,7 @@ agent {
                 sh "mvn --version" 
             }
         }
-        
-    stage('SonarQube Analysis') {
-      environment {
-        SCANNER_HOME = tool 'SonarQube-4.6.2'
-        ORGANIZATION = "demo1_maven_pipeline"
-        PROJECT_NAME = "demo1_maven_pipeline"
-      }
-      steps {
-        withSonarQubeEnv('SonarQube') {
-            sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.organization=$ORGANIZATION \
-            -Dsonar.projectKey=$PROJECT_NAME \
-            -Dsonar.sources=.'''
-        }
-      }
-    }
-        
-        stage("Quality Gate") {
-          steps {
-            timeout(time: 1, unit: 'MINUTES') {
-                waitForQualityGate abortPipeline: true
-            }
-          }
-        }
-
-        stage('Build') {
-            steps {
-                sh 'mvn clean package'
-            }
-            
-        }
+   
         
         stage('Stage 2') {
             steps {
