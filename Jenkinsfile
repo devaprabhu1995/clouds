@@ -1,10 +1,6 @@
 pipeline {
 
-agent {
-    node {
-      label 'Jenkinsfile'
-    }
-  }
+agent  any 
   
       tools {
         jdk 'jdk-8.221'
