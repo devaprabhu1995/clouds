@@ -16,28 +16,35 @@ agent  any
             }
         }
         
-        stage('Stage 1') {
+        stage('build') {
             steps {
                 sh 'mvn clean package'
             }
             
         }
         
-        stage('Stage 2') {
+        stage('test 1') {
             steps {
                 echo 'Stage2 Hello world!'  
-                echo  'Stage2 $date'
+                echo  'test 1 $date'
             }
             
         }
         
         
-        stage('Stage 3') {
+        stage('test 2') {
             steps {
                 echo 'Wel come to Stage3 '  
-                echo  'Stage3 '
+                echo  'test 2 '
             }
             
-        }           
+        }     
+      stage('final') {
+            steps {
+                echo 'the end '  
+                echo  'test 3 '
+            }
+            
+        }     
     }
 }
