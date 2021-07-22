@@ -34,4 +34,11 @@
       </plugin>
     </plugins>
   </build>
+  <distributionManagement>
+<snapshotRepository>
+  <id>cicdpipeline</id>
+  <name>cicdpipeline</name>
+  <url>http://13.235.81.227:8081/repository/cicdpipeline/</url>
+  </snapshotRepository>
+  </distributionManagement>
 </project>
